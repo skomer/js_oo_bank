@@ -9,6 +9,7 @@ describe('Bank', function() {
     var vault;
     var accountOfAdrian;
     var accountOfJo;
+    var foundAccount;
 
     beforeEach(function() {
         thingBotsBank = new Bank("ThingBot's");
@@ -28,10 +29,11 @@ describe('Bank', function() {
         assert.equal(1, thingBotsBank.vault.length);
     });
     it('Bank can find an account by name', function() {
-        var foundAccount = thingBotsBank.find("accountOfJo");
-        assert.equal("Jo's account", foundAccount.name);
-        assert.equal(0.30, foundAccount.amount);
-        assert.equal('personal', foundAccount.type);
+        thingBotsBank.add(accountOfAdrian);
+        thingBotsBank.add(accountOfJohn);
+        thingBotsBank.add(accountOfJo);
+        var foundAccount = thingBotsBank.find("Jo's account");
+        assert.deepEqual(foundAccount, accountOfJo);
     });
 
 

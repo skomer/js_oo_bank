@@ -1,4 +1,5 @@
 
+
 var Bank = function(name) {
     this.name = name;
     this.vault = [];
@@ -7,13 +8,14 @@ var Bank = function(name) {
 Bank.prototype = {
     add: function(account) {
         this.vault.push(account);
+    },
+    find: function(accountName) {
+        return this.vault.find(function(account) {
+            return accountName === account.name;
+        });
     }
 
-
 }
-
-
-
 
 
 
