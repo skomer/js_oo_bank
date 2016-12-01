@@ -10,13 +10,13 @@ describe('Account', function() {
     });
 
     it('has a name', function() {
-        assert.equal("Jo's account", account.name);
+        assert.equal("Jo's account", accountOfJo.name);
     });
     it('has a type', function() {
-        assert.equal('personal', account.type);
+        assert.equal('personal', accountOfJo.type);
     });
     it('has an amount', function() {
-        assert.equal(0.30, account.amount);
+        assert.equal(0.30, accountOfJo.amount);
     });
 
 
