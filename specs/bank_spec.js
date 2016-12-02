@@ -2,7 +2,6 @@ var assert = require('assert');
 var Bank = require('../Bank.js');
 var Account = require('../Account.js');
 
-
 describe('Bank', function() {
 
     var thingBotsBank;
@@ -35,7 +34,25 @@ describe('Bank', function() {
         var foundAccount = thingBotsBank.find("Jo's account");
         assert.deepEqual(foundAccount, accountOfJo);
     });
-
+    it('Bank can sort its vault by account balance', function() {
+        thingBotsBank.add(accountOfAdrian);
+        thingBotsBank.add(accountOfJohn);
+        thingBotsBank.add(accountOfJo);
+        thingBotsBank.sortAsc(this.vault);
+        var lastAccount = thingBotsBank.vault.pop;
+        assert.equal(4764000000.99, thingBotsBank.vault.pop().amount);
+        assert.equal(0.30, thingBotsBank.vault.shift().amount);
+    });
 
 
 });
+
+
+
+
+
+
+
+
+
+
