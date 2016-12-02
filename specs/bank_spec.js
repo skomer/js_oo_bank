@@ -23,18 +23,18 @@ describe('Bank', function() {
     it('vault is empty when constructed', function() {
         assert.equal(0, thingBotsBank.vault.length);
     });
-    it('Bank can add an account to its vault', function() {
+    it('should add an account to its vault', function() {
         thingBotsBank.add(accountOfAdrian);
         assert.equal(1, thingBotsBank.vault.length);
     });
-    it('Bank can find an account by name', function() {
+    it('should find an account by name', function() {
         thingBotsBank.add(accountOfAdrian);
         thingBotsBank.add(accountOfJohn);
         thingBotsBank.add(accountOfJo);
         var foundAccount = thingBotsBank.find("Jo's account");
         assert.deepEqual(foundAccount, accountOfJo);
     });
-    it('Bank can sort its vault by account balance', function() {
+    it('should sort its vault by account balance', function() {
         thingBotsBank.add(accountOfAdrian);
         thingBotsBank.add(accountOfJohn);
         thingBotsBank.add(accountOfJo);
@@ -43,7 +43,13 @@ describe('Bank', function() {
         assert.equal(4764000000.99, thingBotsBank.vault.pop().amount);
         assert.equal(0.30, thingBotsBank.vault.shift().amount);
     });
-
+    it('should find the total account value', function() {
+        thingBotsBank.add(accountOfAdrian);
+        thingBotsBank.add(accountOfJohn);
+        thingBotsBank.add(accountOfJo);
+        var totalAmount = thingBotsBank.sumTotal();
+        assert.equal(4764600001.43, totalAmount);
+    });
 
 });
 

@@ -17,6 +17,20 @@ Bank.prototype = {
         return this.vault.sort(function(firstAccount, secondAccount) {
             return parseFloat(firstAccount.amount) - parseFloat(secondAccount.amount);
         });
+    },
+    
+    // reduce: function() {
+    //     return this.vault.reduce(function(acc1, acc2) {
+    //         return acc1.amount + acc2.amount;
+    //     }, 0);
+    // }
+
+    sumTotal: function() {
+        var total = 0;
+        this.vault.forEach(function(account) {
+            total += account.amount;
+        });
+        return total;
     }
 
 }
@@ -25,3 +39,12 @@ Bank.prototype = {
 
 
 module.exports = Bank;
+
+
+
+
+
+
+
+
+
